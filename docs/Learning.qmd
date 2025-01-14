@@ -37,7 +37,17 @@ My *research area* is **Diabetes and pregnancy**.
 
 ```{r}
 library(tidyverse)
+post_meal_data <- read_csv2(here::here("data/post-meal-insulin.csv"))
 ```
+## Showing the data
+
+```{r}
+post_meal_data
+```
+```{r}
+glimpse(post_meal_data)
+```
+
 
 ## Testing for git
 
