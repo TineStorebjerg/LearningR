@@ -1,0 +1,10 @@
+# R and RStudio files to ignore
+# What should i change in this file?
+.Rhistory
+.RData
+.Rproj.user
+.Rbuildignore
+# MacOS file to ignore
+.DS_Store
+# Quarto folder to ignore
+.quarto
