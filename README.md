@@ -1,4 +1,4 @@
-TODO: Add more to the title of your project here
+# R introduction course
 
 # LearningR:
 
