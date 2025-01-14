@@ -1,0 +1,41 @@
+---
+title: "Reproducible document"
+author: "TSK"
+format: html
+---
+
+
+## Setup code chunk
+
+```{r}
+library(tidyverse)
+```
+
+## About me
+
+
+- Tine Storebjerg Knudsen
+- Affiliations: SDCA, AU
+
+
+My *research area* is **Diabetes and pregnancy**.
+
+## Simple code
+```{r}
+3 * 3
+```
+
+
+
+## Basics of R
+
+```{r}
+1 + 1
+```
+
+## Setup code chunk
+
+```{r}
+library(tidyverse)
+```
+
