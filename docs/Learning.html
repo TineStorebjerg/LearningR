@@ -104,7 +104,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="setup-code-chunk" class="level2">
 <h2 class="anchored" data-anchor-id="setup-code-chunk">Setup code chunk</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>post_meal_data <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/post-meal-insulin.csv"</span>))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>?colnames</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(colnames)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span>(axis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Named list()
+ - attr(*, "class")= chr [1:2] "theme" "gg"
+ - attr(*, "complete")= logi FALSE
+ - attr(*, "validate")= logi TRUE</code></pre>
+</div>
 </div>
 </section>
 <section id="about-me" class="level2">
@@ -118,7 +128,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="simple-code" class="level2">
 <h2 class="anchored" data-anchor-id="simple-code">Simple code</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">*</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">*</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 9</code></pre>
 </div>
@@ -127,7 +137,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="basics-of-r" class="level2">
 <h2 class="anchored" data-anchor-id="basics-of-r">Basics of R</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
@@ -135,28 +145,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="setup-code-chunk-1" class="level2">
 <h2 class="anchored" data-anchor-id="setup-code-chunk-1">Setup code chunk</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>post_meal_data <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/post-meal-insulin.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 31 Columns: 85
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ";"
-chr  (2): OFS.ID, Group
-dbl (83): Age, BMI, Length, Weight, Bone.mineral.DXA, Fat.mass...DXA, Fat.ma...
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-</div>
 </section>
 <section id="showing-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="showing-the-data">Showing the data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>post_meal_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>post_meal_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 31 × 85
    OFS.ID  Group   Age   BMI Length Weight Bone.mineral.DXA Fat.mass...DXA
@@ -181,7 +174,7 @@ dbl (83): Age, BMI, Length, Weight, Bone.mineral.DXA, Fat.mass...DXA, Fat.ma...
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(post_meal_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(post_meal_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 31
 Columns: 85
@@ -276,6 +269,51 @@ $ glykemi                  &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 <section id="testing-for-git" class="level2">
 <h2 class="anchored" data-anchor-id="testing-for-git">Testing for git</h2>
 <p>The weather is nice today</p>
+</section>
+<section id="day-2---code-along" class="level2">
+<h2 class="anchored" data-anchor-id="day-2---code-along">Day 2 - code along</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(post_meal_data, <span class="fu">aes</span>(<span class="at">x =</span> BMI)) <span class="sc">+</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Learning_files/figure-html/hello-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(post_meal_data, <span class="fu">aes</span>(<span class="at">x =</span> BMI)) <span class="sc">+</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-bmi-histo" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Learning_files/figure-html/fig-bmi-histo-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Distribution of BMI</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-bmi-histo">Figure&nbsp;1</a></p>
+</section>
+<section id="exercise-discrete-plot" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-discrete-plot">9.5 exercise discrete plot</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(post_meal_data, <span class="fu">aes</span>(<span class="at">x =</span> Group)) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-group-bar" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Learning_files/figure-html/fig-group-bar-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: glykemi</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>See <a href="#fig-group-bar">Figure&nbsp;2</a> above for a cool plot!</p>
 </section>
 
 </main>

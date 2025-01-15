@@ -11,7 +11,13 @@ format: html
 #| message: false
 #| warning: false
 library(tidyverse)
+post_meal_data <- read_csv2(here::here("data/post-meal-insulin.csv"))
+?colnames
+help(colnames)
+theme(axis)
+
 ```
+
 
 ## About me
 
@@ -37,10 +43,7 @@ My *research area* is **Diabetes and pregnancy**.
 
 ## Setup code chunk
 
-```{r}
-library(tidyverse)
-post_meal_data <- read_csv2(here::here("data/post-meal-insulin.csv"))
-```
+
 ## Showing the data
 
 ```{r}
@@ -54,3 +57,30 @@ glimpse(post_meal_data)
 ## Testing for git
 
 The weather is nice today
+
+## Day 2 - code along
+
+```{r hello}
+ggplot(post_meal_data, aes(x = BMI)) + 
+  geom_histogram()
+```
+
+```{r}
+#| fig-cap: "Distribution of BMI"
+#| label: fig-bmi-histo
+ggplot(post_meal_data, aes(x = BMI)) + 
+  geom_histogram()
+```
+
+@fig-bmi-histo
+
+## 9.5 exercise discrete plot
+
+```{r}
+#| fig-cap: "glykemi"
+#| label: fig-group-bar
+ggplot(post_meal_data, aes(x = Group)) +
+  geom_bar()
+```
+
+See @fig-group-bar above for a cool plot!
