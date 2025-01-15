@@ -7,7 +7,9 @@ format: html
 
 ## Setup code chunk
 
-```{r}
+```{r setup}
+#| message: false
+#| warning: false
 library(tidyverse)
 ```
 
