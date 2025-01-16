@@ -110,14 +110,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>small_post_meal_data <span class="ot">&lt;-</span> <span class="fu">select</span>(post_meal_data, OFS.ID, Age, BMI, Group, auc_pg, auc_ins, glykemi)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>tidier_post_meal_data <span class="ot">&lt;-</span> small_post_meal_data <span class="sc">|&gt;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">auc_glucose =</span> auc_pg,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">auc_insulin =</span> auc_ins) <span class="sc">|&gt;</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(glykemi <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>glykemi)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>?colnames</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(colnames)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span>(axis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">auc_glucose =</span> auc_pg,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">auc_insulin =</span> auc_ins</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(glykemi <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>glykemi)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>?colnames</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(colnames)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span>(axis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Named list()
  - attr(*, "class")= chr [1:2] "theme" "gg"
@@ -606,10 +608,11 @@ $ glykemi                  &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 </div>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Task 2.</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>post_meal_data <span class="sc">|&gt;</span></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">".."</span>), <span class="sc">-</span> <span class="fu">contains</span>(<span class="st">"..."</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">".."</span>), <span class="sc">-</span><span class="fu">contains</span>(<span class="st">"..."</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
 <span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">p.glucose.minus5 =</span> P.Glucose..<span class="fl">5.</span>OGTT,</span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">p.insulin.minus5 =</span> Insulin..<span class="fl">5.</span>OGTT.X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">p.insulin.minus5 =</span> Insulin..<span class="fl">5.</span>OGTT.X</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 31 × 2
    p.glucose.minus5 p.insulin.minus5
@@ -712,7 +715,7 @@ $ glykemi                  &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>small_post_meal_data <span class="sc">|&gt;</span></span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Group <span class="sc">==</span> <span class="st">"CTR"</span> , BMI <span class="sc">&gt;=</span> <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Group <span class="sc">==</span> <span class="st">"CTR"</span>, BMI <span class="sc">&gt;=</span> <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 11 × 7
    OFS.ID    Age   BMI Group auc_pg auc_ins glykemi
@@ -730,7 +733,7 @@ $ glykemi                  &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 11 OFS 345    33  27.4 CTR     786.  43337.       0</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>small_post_meal_data <span class="sc">|&gt;</span></span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Group <span class="sc">==</span> <span class="st">"CTR"</span> <span class="sc">|</span> BMI <span class="sc">&gt;=</span><span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Group <span class="sc">==</span> <span class="st">"CTR"</span> <span class="sc">|</span> BMI <span class="sc">&gt;=</span> <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 23 × 7
    OFS.ID    Age   BMI Group auc_pg auc_ins glykemi
@@ -746,6 +749,32 @@ $ glykemi                  &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
  9 OFS 331    51  29.7 CTR     834.  39020.       0
 10 OFS 332    51  21.2 CTR     787.  12343.       0
 # ℹ 13 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="day-3-modify-or-column" class="level2">
+<h2 class="anchored" data-anchor-id="day-3-modify-or-column">Day 3: modify or column</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>tidier_post_meal_data <span class="sc">|&gt;</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">insulin_glucose_ratio =</span> auc_insulin <span class="sc">/</span> auc_glucose,</span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Group =</span> <span class="fu">if_else</span>(Group <span class="sc">==</span> <span class="st">"CTR"</span>, <span class="st">"control"</span>, <span class="st">"first-degree relative"</span>)</span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 27 × 7
+   OFS.ID    Age   BMI Group       auc_glucose auc_insulin insulin_glucose_ratio
+   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;       &lt;dbl&gt;                 &lt;dbl&gt;
+ 1 OFS 301    50  27.5 first-degr…        806.      28728.                  35.7
+ 2 OFS 302    51  33.7 first-degr…        944.      42243.                  44.7
+ 3 OFS 304    43  26.3 first-degr…        694.       7108.                  10.2
+ 4 OFS 303    55  25.9 first-degr…        731.      37593.                  51.4
+ 5 OFS 305    53  29.4 first-degr…       1004.      33863.                  33.7
+ 6 OFS 306    51  23.7 first-degr…        713.      15008.                  21.1
+ 7 OFS 307    48  23.9 first-degr…        965.      23196.                  24.0
+ 8 OFS 308    35  22   first-degr…        741.      15272.                  20.6
+ 9 OFS 309    54  26.4 first-degr…        848.      24426.                  28.8
+10 OFS 310    52  24.5 first-degr…        759.      22475.                  29.6
+# ℹ 17 more rows</code></pre>
 </div>
 </div>
 </section>
