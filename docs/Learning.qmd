@@ -23,6 +23,12 @@ tidier_post_meal_data <- small_post_meal_data |>
   filter(glykemi == 0) |>
   select(-glykemi)
 
+tidied_post_meal_data <- tidier_post_meal_data |>
+  mutate(
+    insulin_glucose_ratio = auc_insulin / auc_glucose,
+    Group = if_else(Group == "CTR", "Control", "First-degree relative")
+  )
+
 ?colnames
 help(colnames)
 theme(axis)
@@ -244,4 +250,33 @@ post_meal_data |>
     procent_body_fat = (Fat.mass.DXA / Weight) * 100
   ) |>
   filter(procent_body_fat > 30)
+```
+
+## visualizing with jitter plot
+
+```{r}
+tidied_post_meal_data |>
+  mutate(overweight = if_else(BMI >= 25, "overweight", "not overweight")) |>
+  ggplot(aes(x = overweight, y = insulin_glucose_ratio)) +
+  geom_jitter()
+```
+## Plotting three or more columns
+
+```{r}
+tidied_post_meal_data |>
+  filter(BMI < 30) |>
+  ggplot(aes(x = Age, y = auc_insulin, colour = Group)) +
+  geom_point()
+```
+```{r}
+tidied_post_meal_data |>
+  filter(BMI < 30) |>
+  mutate(young = if_else(Age < 40, "Young", "Old")) |>
+  ggplot(aes(x = BMI, y = insulin_glucose_ratio, colour = Group)) +
+  geom_point() +
+  facet_grid(rows = vars(young)) +
+  labs(
+    x = "Body mass index",
+    y = "Insulin to glucose ratio"
+  )
 ```
